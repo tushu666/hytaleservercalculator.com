@@ -24,7 +24,7 @@ export default function Layout({ children }: { children: ReactNode }) {
         className="fixed inset-0 z-[-1] bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${bgMain})` }}
       >
-        <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" /> {/* Overlay for readability */}
+        <div className="pointer-events-none absolute inset-0 bg-background/80 backdrop-blur-sm" /> {/* Overlay for readability */}
       </div>
 
       {/* Navbar */}
