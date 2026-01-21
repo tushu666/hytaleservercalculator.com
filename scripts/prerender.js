@@ -5,9 +5,10 @@ import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const toAbsolute = (p) => path.resolve(__dirname, '..', p);
+const toFileUrl = (p) => `file://${toAbsolute(p).replace(/\\/g, '/')}`;
 
 const template = fs.readFileSync(toAbsolute('dist/static/index.html'), 'utf-8');
-const { render } = await import(toAbsolute('dist/server/entry-server.js'));
+const { render } = await import(toFileUrl('dist/server/entry-server.js'));
 
 const routesToPrerender = ['/', '/recommender', '/all-plans'];
 
